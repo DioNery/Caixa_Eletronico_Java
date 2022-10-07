@@ -1,4 +1,4 @@
-public class Banco {
+public class Banco implements FuncoesdoBanco {
 
     //Atributos
     public int numConta;
@@ -53,6 +53,7 @@ public class Banco {
 
     //Métodos Adicionais : 
 
+    @Override
     public void abrirConta(String t)
     {
         setTipoConta(t);
@@ -64,6 +65,7 @@ public class Banco {
             saldo = 150;
         }
     }
+    @Override
     public void fecharConta()
     {
       if (saldo > 0) {
@@ -77,6 +79,7 @@ public class Banco {
         setStatus(false);
       }
     }
+    @Override
     public void depositar(float v) {
        if (status == true) {
            setSaldo(getSaldo()+ v);
@@ -85,6 +88,7 @@ public class Banco {
             System.out.println("Impossível depositar.");
        }
     }
+    @Override
     public void sacar(float saque) {
         if (status == true) {
             if (saldo > saque) {
@@ -99,6 +103,7 @@ public class Banco {
             System.out.println("Impossível Sacar.");
         }
     }
+    @Override
     public void PagarMensal()
     {
         float pagamento;
